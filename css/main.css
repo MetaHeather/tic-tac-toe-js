@@ -1,3 +1,10 @@
-body {
-    background-color : purple;
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 20vmin);
+    grid-template-rows: repeat(3, 20vmin);
+    grid-gap: 1vmin;
+}
+
+.board div {
+    background-color: lightgray;
 }
