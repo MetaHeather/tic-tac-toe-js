@@ -36,13 +36,13 @@ function handleClick (evt) {
   let div = evt.target;
   //sets column num and row num to dataset of clicked div
   //parses returned string into an Int
-  let columnNum = parseInt(div.dataset.col) -1;
-  let rowNum = parseInt(div.dataset.row) - 1;
+  let columnIdx = parseInt(div.dataset.col) -1;
+  let rowIdx = parseInt(div.dataset.row) - 1;
   // returns out of event if a div isn't clicked or there
   //is alreaey a winner or tie
-  if (isNaN(columnNum) || isNaN(rowNum) || winner) return;
+  if (isNaN(columnIdx) || isNaN(rowIdx) || winner) return;
   //set board array index to player number
-  board[rowNum][columnNum] = player;
+  board[rowIdx][columnIdx] = player;
   //change player
   player *= -1;
   //check for winner and render
