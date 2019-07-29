@@ -59,8 +59,9 @@ function handleClick (evt) {
   let columnIdx = parseInt(div.dataset.col) -1;
   let rowIdx = parseInt(div.dataset.row) - 1;
   // returns out of event if a div isn't clicked or there
+  // is already an x or o, or if there
   //is alreaey a winner or tie
-  if (isNaN(columnIdx) || isNaN(rowIdx) || winner) return;
+  if (isNaN(columnIdx) || isNaN(rowIdx) || board[rowIdx][columnIdx] !== 0 || winner) return;
   //set board array index to player number
   board[rowIdx][columnIdx] = player;
   //change player
