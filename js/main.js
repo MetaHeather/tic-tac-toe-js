@@ -14,7 +14,7 @@ let board, player, winner;
 
 
 /*----- event listeners -----*/ 
-
+document.querySelector('button').addEventListener('click', init)
 document.querySelector('section.board').addEventListener('click', handleClick);
 
 /*----- functions -----*/
@@ -46,6 +46,9 @@ function render () {
       let div = document.querySelector(`[data-col='${colIdx + 1}'][data-row='${rowIdx + 1}']`);
       //set text content of div to match player turn (X or O)
       div.innerHTML = SYMBOL[colVal];
+      if(winner){
+        msg = "";
+      };
     });
   });
 }
@@ -72,5 +75,22 @@ function handleClick (evt) {
 }
 
 function getWinner() {
-    return null;
+  //Gets sum of board rows to check for winner
+  let winner = null;
+  board.forEach(function(rowArray,i){
+    let total = rowArray.reduce(function(a,b){return a + b})
+    if (total === 3) winner = 1;
+    if (total === -3) winner = -1; 
+  });
+  //Checks for 
+  //Checks diagnal starting at top left corner
+  let topLeftDiag = board[0][0] + board[1][1] + board[2][2];
+  if (topLeftDiag === 3) winner = 1;
+  if (topLeftDiag === -3) winner = -1;
+  //Checks diagnal starting at top right corner
+  let topRightDiag = board[0][2] + board[1][1] + board[2][0];
+  if (topRightDiag === 3) winner = 1;
+  if(topRightDiag === -3) winner = -1;
+  //return the winner
+  return winner;
 }

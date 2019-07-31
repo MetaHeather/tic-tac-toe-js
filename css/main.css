@@ -8,6 +8,16 @@ body {
     align-items: center;
   }
 
+button {
+    width: 5em;
+    font-size: 1em;
+    font-weight: 700;
+    margin : 3em;
+    padding: .5em;
+    border-radius: 5px;
+    border: 1px solid #444;
+}
+
 .board {
     display: grid;
     grid-template-columns: repeat(3, 20vmin);
